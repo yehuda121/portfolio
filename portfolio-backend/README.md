@@ -52,7 +52,7 @@ The Developer Quiz stores all question content in DynamoDB (bilingual EN/HE). UI
 - `GET /api/quiz/stats` — header: `x-anon-id`
 - `DELETE /api/quiz/stats` — header: `x-anon-id`
 
-## Local Development
+## Local Development 
 
 ```bash
 cp .env.example .env
