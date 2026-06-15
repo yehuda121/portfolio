@@ -164,39 +164,46 @@ jobs:
       - deploy-backend
       - deploy-frontend
     if: always()
+    env:
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_FROM: ${{ secrets.SMTP_FROM }}
+      DEPLOY_NOTIFY_EMAIL: ${{ secrets.DEPLOY_NOTIFY_EMAIL }}
 
     steps:
       - name: Skip email notification (SMTP not configured)
         if: >-
-          ${{ secrets.SMTP_SERVER == ''
-          || secrets.SMTP_PORT == ''
-          || secrets.SMTP_USERNAME == ''
-          || secrets.SMTP_PASSWORD == ''
-          || secrets.SMTP_FROM == ''
-          || secrets.DEPLOY_NOTIFY_EMAIL == '' }}
+          ${{ env.SMTP_SERVER == ''
+          || env.SMTP_PORT == ''
+          || env.SMTP_USERNAME == ''
+          || env.SMTP_PASSWORD == ''
+          || env.SMTP_FROM == ''
+          || env.DEPLOY_NOTIFY_EMAIL == '' }}
         run: echo "SMTP secrets not configured; skipping email notification."
 
       - name: Send success email
         if: >-
-          ${{ secrets.SMTP_SERVER != ''
-          && secrets.SMTP_PORT != ''
-          && secrets.SMTP_USERNAME != ''
-          && secrets.SMTP_PASSWORD != ''
-          && secrets.SMTP_FROM != ''
-          && secrets.DEPLOY_NOTIFY_EMAIL != ''
+          ${{ env.SMTP_SERVER != ''
+          && env.SMTP_PORT != ''
+          && env.SMTP_USERNAME != ''
+          && env.SMTP_PASSWORD != ''
+          && env.SMTP_FROM != ''
+          && env.DEPLOY_NOTIFY_EMAIL != ''
           && needs.backend-check.result == 'success'
           && needs.frontend-check.result == 'success'
           && needs.deploy-backend.result == 'success'
           && needs.deploy-frontend.result == 'success' }}
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: ${{ secrets.SMTP_SERVER }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
+          server_address: ${{ env.SMTP_SERVER }}
+          server_port: ${{ env.SMTP_PORT }}
+          username: ${{ env.SMTP_USERNAME }}
+          password: ${{ env.SMTP_PASSWORD }}
           subject: "[Portfolio] Production deployment succeeded"
-          to: ${{ secrets.DEPLOY_NOTIFY_EMAIL }}
-          from: ${{ secrets.SMTP_FROM }}
+          to: ${{ env.DEPLOY_NOTIFY_EMAIL }}
+          from: ${{ env.SMTP_FROM }}
           body: |
             Production deployment completed successfully.
 
@@ -213,25 +220,25 @@ jobs:
 
       - name: Send failure email
         if: >-
-          ${{ secrets.SMTP_SERVER != ''
-          && secrets.SMTP_PORT != ''
-          && secrets.SMTP_USERNAME != ''
-          && secrets.SMTP_PASSWORD != ''
-          && secrets.SMTP_FROM != ''
-          && secrets.DEPLOY_NOTIFY_EMAIL != ''
+          ${{ env.SMTP_SERVER != ''
+          && env.SMTP_PORT != ''
+          && env.SMTP_USERNAME != ''
+          && env.SMTP_PASSWORD != ''
+          && env.SMTP_FROM != ''
+          && env.DEPLOY_NOTIFY_EMAIL != ''
           && !(needs.backend-check.result == 'success'
           && needs.frontend-check.result == 'success'
           && needs.deploy-backend.result == 'success'
           && needs.deploy-frontend.result == 'success') }}
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: ${{ secrets.SMTP_SERVER }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
+          server_address: ${{ env.SMTP_SERVER }}
+          server_port: ${{ env.SMTP_PORT }}
+          username: ${{ env.SMTP_USERNAME }}
+          password: ${{ env.SMTP_PASSWORD }}
           subject: "[Portfolio] Production deployment FAILED"
-          to: ${{ secrets.DEPLOY_NOTIFY_EMAIL }}
-          from: ${{ secrets.SMTP_FROM }}
+          to: ${{ env.DEPLOY_NOTIFY_EMAIL }}
+          from: ${{ env.SMTP_FROM }}
           body: |
             Production deployment did not complete successfully.
 
