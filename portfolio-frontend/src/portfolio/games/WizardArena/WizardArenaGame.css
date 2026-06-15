@@ -1,0 +1,66 @@
+/* Container Page */
+.wizardarena-page {
+  min-height: calc(100vh - 80px);
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e2e8f0;
+  background: radial-gradient(circle at top, #0b1120, #020617 40%);
+}
+
+/* Header */
+.wizardarena-header {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.wizardarena-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.wizardarena-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.wizardarena-instructions {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.wizardarena-keyboard-warning {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f97373; 
+}
+
+/* Frame Wrapper */
+.wizardarena-frame-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0px 0px 25px rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wizardarena-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

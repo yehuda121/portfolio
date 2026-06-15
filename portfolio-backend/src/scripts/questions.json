@@ -1,0 +1,427 @@
+[
+  {
+    "questionId": "oop-multiple-inheritance-011",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "למה Multiple Inheritance נחשב בעייתי?",
+      "en": "Why is Multiple Inheritance considered problematic?"
+    },
+    "answers": {
+      "he": [
+        "בגלל Diamond Problem – חוסר בהירות איזו מתודה עדיפה",
+        "כי אי אפשר לממש מתודות במחלקות",
+        "כי זה פוגע בביצועים תמיד",
+        "כי זה אסור בכל שפה"
+      ],
+      "en": [
+        "Because of the Diamond Problem – ambiguity about which method to use",
+        "Because methods cannot be implemented",
+        "Because it always hurts performance",
+        "Because it is forbidden in all languages"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-open-closed-012",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מהו עקרון Open/Closed Principle?",
+      "en": "What is the Open/Closed Principle?"
+    },
+    "answers": {
+      "he": [
+        "קוד צריך להיות פתוח להרחבה אך סגור לשינוי",
+        "קוד צריך להיות פתוח לשינוי תמיד",
+        "קוד חייב להיות sealed",
+        "אסור להשתמש בירושה"
+      ],
+      "en": [
+        "Software should be open for extension but closed for modification",
+        "Software should always be open to modification",
+        "Code must always be sealed",
+        "Inheritance must never be used"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-liskov-013",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהו Liskov Substitution Principle?",
+      "en": "What is the Liskov Substitution Principle?"
+    },
+    "answers": {
+      "he": [
+        "מחלקת בן חייבת להיות ניתנת להחלפה במחלקת האב מבלי לשבור התנהגות",
+        "מחלקת בן חייבת להיות final",
+        "אין קשר בין מחלקת בן לאב",
+        "כל מחלקה חייבת לממש interface"
+      ],
+      "en": [
+        "A subclass must be substitutable for its parent without breaking behavior",
+        "A subclass must always be final",
+        "There is no relation between subclass and parent",
+        "Every class must implement an interface"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-interface-segregation-014",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מהו Interface Segregation Principle?",
+      "en": "What is the Interface Segregation Principle?"
+    },
+    "answers": {
+      "he": [
+        "עדיף הרבה ממשקים קטנים מאשר אחד גדול",
+        "צריך להשתמש רק בממשק אחד בפרויקט",
+        "אסור להשתמש בממשקים",
+        "ממשק חייב להכיל מימוש"
+      ],
+      "en": [
+        "Prefer many small interfaces over one large interface",
+        "Use only one interface in a project",
+        "Interfaces should not be used",
+        "Interfaces must contain implementation"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-dependency-inversion-015",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהו Dependency Inversion Principle?",
+      "en": "What is the Dependency Inversion Principle?"
+    },
+    "answers": {
+      "he": [
+        "תלות בהפשטות ולא במימושים קונקרטיים",
+        "תלות במימושים בלבד",
+        "שימוש ב-static בלבד",
+        "ביטול ירושה"
+      ],
+      "en": [
+        "Depend on abstractions, not on concrete implementations",
+        "Depend only on concrete implementations",
+        "Use only static methods",
+        "Remove inheritance"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-static-vs-instance-016",
+    "category": "oop",
+    "difficulty": "junior",
+    "isActive": true,
+    "questionText": {
+      "he": "מה ההבדל בין static ל-instance?",
+      "en": "What is the difference between static and instance members?"
+    },
+    "answers": {
+      "he": [
+        "Static שייך למחלקה; Instance שייך למופע",
+        "Instance שייך למחלקה; Static שייך למופע",
+        "אין הבדל",
+        "Static קיים רק ב-Java"
+      ],
+      "en": [
+        "Static belongs to the class; Instance belongs to the object",
+        "Instance belongs to the class; Static belongs to the object",
+        "There is no difference",
+        "Static exists only in Java"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-law-of-demeter-017",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהו Law of Demeter?",
+      "en": "What is the Law of Demeter?"
+    },
+    "answers": {
+      "he": [
+        "עקרון 'אל תדבר עם זרים' – הימנע מקריאות שרשרת ארוכות",
+        "כל מחלקה חייבת להיות public",
+        "חייבים להשתמש בירושה",
+        "אין להשתמש בממשקים"
+      ],
+      "en": [
+        "The 'talk only to your immediate friends' principle – avoid long method chains",
+        "All classes must be public",
+        "Inheritance is mandatory",
+        "Interfaces must not be used"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-reflection-018",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מה זה Reflection?",
+      "en": "What is Reflection?"
+    },
+    "answers": {
+      "he": [
+        "גישה דינמית למחלקות ומתודות בזמן ריצה",
+        "ירושה מרובה",
+        "מנגנון מיון",
+        "תבנית עיצוב"
+      ],
+      "en": [
+        "Dynamic access to classes and methods at runtime",
+        "Multiple inheritance",
+        "A sorting mechanism",
+        "A design pattern"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-try-with-resources-019",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מתי משתמשים ב-try-with-resources?",
+      "en": "When should try-with-resources be used?"
+    },
+    "answers": {
+      "he": [
+        "בעת עבודה עם משאבים חיצוניים כמו קבצים או חיבורים",
+        "רק עם משתנים static",
+        "בעת ירושה",
+        "בעת יצירת Singleton"
+      ],
+      "en": [
+        "When working with external resources like files or connections",
+        "Only with static variables",
+        "During inheritance",
+        "When creating a Singleton"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-covariance-020",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהי Covariance בג'אווה?",
+      "en": "What is Covariance in Java?"
+    },
+    "answers": {
+      "he": [
+        "יכולת לקרוא מרשימה של תת-סוג באמצעות ? extends",
+        "יכולת לכתוב לכל רשימה כל סוג",
+        "ירושה מרובה",
+        "תבנית עיצוב"
+      ],
+      "en": [
+        "Ability to read from a list of subtype using ? extends",
+        "Ability to write any type into any list",
+        "Multiple inheritance",
+        "A design pattern"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-encapsulation-vs-abstraction-021",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מה ההבדל בין Encapsulation ל-Abstraction?",
+      "en": "What is the difference between Encapsulation and Abstraction?"
+    },
+    "answers": {
+      "he": [
+        "Encapsulation מסתיר מימוש פנימי; Abstraction מציג מהות ומסתיר פרטים לא חשובים",
+        "אין הבדל ביניהם",
+        "Abstraction מסתיר קוד; Encapsulation מוחק קוד",
+        "Encapsulation הוא Design Pattern"
+      ],
+      "en": [
+        "Encapsulation hides internal implementation; Abstraction exposes essential behavior while hiding details",
+        "There is no difference",
+        "Abstraction deletes code; Encapsulation hides files",
+        "Encapsulation is a design pattern"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-parent-child-output-022",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מה יודפס כאשר Parent obj = new Child(); obj.print(); ?",
+      "en": "What will be printed when Parent obj = new Child(); obj.print(); ?"
+    },
+    "answers": {
+      "he": [
+        "Child",
+        "Parent",
+        "Compilation Error",
+        "Null"
+      ],
+      "en": [
+        "Child",
+        "Parent",
+        "Compilation Error",
+        "Null"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-struct-vs-class-023",
+    "category": "oop",
+    "difficulty": "mid",
+    "isActive": true,
+    "questionText": {
+      "he": "מה ההבדל בין Class ל-Struct (ב-C#)?",
+      "en": "What is the difference between Class and Struct in C#?"
+    },
+    "answers": {
+      "he": [
+        "Struct הוא value type; Class הוא reference type",
+        "Struct תומך בירושה מלאה",
+        "Class נשמר ב-stack בלבד",
+        "אין הבדל"
+      ],
+      "en": [
+        "Struct is a value type; Class is a reference type",
+        "Struct supports full inheritance",
+        "Class is stored only on the stack",
+        "There is no difference"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-sealed-final-024",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מה ההבדל בין final ל-sealed class?",
+      "en": "What is the difference between final and sealed class?"
+    },
+    "answers": {
+      "he": [
+        "final מונע ירושה; sealed מאפשר ירושה רק למחלקות מוגדרות",
+        "אין הבדל",
+        "sealed מונע יצירת מופעים",
+        "final מאפשר ירושה חלקית"
+      ],
+      "en": [
+        "final prevents inheritance; sealed restricts inheritance to specific classes",
+        "There is no difference",
+        "sealed prevents instantiation",
+        "final allows partial inheritance"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-oop-limitations-025",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהם חסרונות אפשריים של OOP?",
+      "en": "What are potential drawbacks of OOP?"
+    },
+    "answers": {
+      "he": [
+        "מורכבות יתר ותלות גבוהה בין מחלקות",
+        "חוסר אפשרות לירושה",
+        "אין חסרונות כלל",
+        "לא תומך בביצועים"
+      ],
+      "en": [
+        "Over-engineering and tight coupling between classes",
+        "No inheritance support",
+        "No drawbacks at all",
+        "Does not support performance"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-metaprogramming-026",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מה זה Metaprogramming?",
+      "en": "What is Metaprogramming?"
+    },
+    "answers": {
+      "he": [
+        "קוד שמייצר או משנה קוד אחר",
+        "ירושה מרובה",
+        "שימוש ב-static בלבד",
+        "תבנית עיצוב"
+      ],
+      "en": [
+        "Code that generates or manipulates other code",
+        "Multiple inheritance",
+        "Using only static methods",
+        "A design pattern"
+      ]
+    },
+    "correctIndex": 0
+  },
+  {
+    "questionId": "oop-contravariance-027",
+    "category": "oop",
+    "difficulty": "senior",
+    "isActive": true,
+    "questionText": {
+      "he": "מהי Contravariance?",
+      "en": "What is Contravariance?"
+    },
+    "answers": {
+      "he": [
+        "שימוש ב-? super המאפשר כתיבה של תת-סוג לרשימה",
+        "שימוש ב-? extends בלבד",
+        "ירושה כפולה",
+        "אובייקט Immutable"
+      ],
+      "en": [
+        "Using ? super allowing writing subtype into a list",
+        "Using ? extends only",
+        "Multiple inheritance",
+        "An immutable object"
+      ]
+    },
+    "correctIndex": 0
+  }
+]

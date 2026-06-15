@@ -1,0 +1,180 @@
+.snake-game {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  box-sizing: border-box;
+}
+
+.snake-card {
+  position: relative;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.98));
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
+  padding: 1.5rem 1.75rem 2rem;
+  max-width: min(420px, 100%);
+  color: #e2e8f0;
+}
+
+.snake-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.snake-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.snake-header p {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+
+.snake-card {
+  --cell-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell-size));
+  gap: 1px;
+  background: radial-gradient(circle at top, #020617, #020617 55%);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(30, 64, 175, 0.8);
+  box-shadow: inset 0 0 20px rgba(15, 23, 42, 0.9);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: rgba(15, 23, 42, 1);
+  border-radius: 0.3rem;
+  box-shadow: inset 0 0 4px rgba(15, 23, 42, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.cell.snake::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+  border-radius: 0.3rem;
+}
+
+.cell.food::before {
+  content: "";
+  position: absolute;
+  inset: 20%;
+  background: radial-gradient(circle, #fb923c, #f97316 60%, #f97316 100%);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.9);
+  border-radius: 999px;
+}
+
+/* ===== Footer – score ===== */
+
+.snake-footer {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.snake-score {
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+/* ===== Overlay of Game Over ===== */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.98)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.overlay h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.overlay button {
+  padding: 0.55rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.8);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 1));
+  color: #e0f2fe;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.overlay button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.6);
+  border-color: rgba(125, 211, 252, 1);
+}
+
+@media (max-width: 768px) {
+  .snake-game {
+    padding: 2rem 0.5rem;
+  }
+
+  .snake-card {
+    padding: 1.25rem 1.25rem 1.75rem;
+    --cell-size: 15px;
+  }
+
+  .snake-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .overlay h1 {
+    font-size: 1.3rem;
+  }
+
+  .overlay button {
+    padding: 0.5rem 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .snake-card {
+    --cell-size: 13px;
+  }
+}
+
+.snake-best {
+  font-weight: 500;
+  color: #38bdf8;
+}

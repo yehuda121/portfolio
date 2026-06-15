@@ -1,0 +1,14 @@
+:root {
+  --ui-bg: #0b1220;
+  --ui-surface: rgba(15, 23, 42, 0.92);
+  --ui-border: rgba(148, 163, 184, 0.35);
+  --ui-text: #e2e8f0;
+  --ui-muted: #94a3b8;
+  --ui-primary: #38bdf8;
+  --ui-primary-hover: #0ea5e9;
+  --ui-success: #22c55e;
+  --ui-warning: #f59e0b;
+  --ui-error: #f87171;
+  --ui-radius: 10px;
+  --ui-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+}

@@ -1,0 +1,8 @@
+node_modules
+serviceAccountKey.json
+.env
+.env.*
+*adminsdk*
+serviceAccount*
+click_game-backend
+lambda.zip

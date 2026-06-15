@@ -1,0 +1,445 @@
+/* PdfMerge.css */
+
+.pdfMerge-page {
+  min-height: calc(100vh - 72px);
+  padding: 4rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
+  color: #e5e7eb;
+}
+
+.pdfMerge-header {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 2rem;
+}
+
+.pdfMerge-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #f9fafb;
+}
+
+.pdfMerge-subtitle {
+  max-width: 900px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.pdfMerge-card {
+  width: 100%;
+  max-width: 1100px;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  border-radius: 1rem;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+}
+
+.pdfMerge-uploadRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pdfMerge-uploadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.pdfMerge-uploadBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 12px 30px rgba(8, 47, 73, 0.7);
+}
+
+.pdfMerge-fileInput {
+  display: none;
+}
+
+.pdfMerge-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfMerge-metaText {
+  font-size: 0.88rem;
+  color: #9ca3af;
+}
+
+.pdfMerge-secondaryBtn {
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #020617;
+  color: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.pdfMerge-secondaryBtn:hover:enabled {
+  transform: translateY(-1px);
+  border-color: #38bdf8;
+  color: #f9fafb;
+}
+
+.pdfMerge-secondaryBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.pdfMerge-dropZone {
+  border-radius: 14px;
+  border: 1px dashed rgba(148, 163, 184, 0.55);
+  background: rgba(2, 6, 23, 0.35);
+  padding: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.pdfMerge-dropText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pdfMerge-dropTitle {
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.pdfMerge-dropHint {
+  font-size: 0.92rem;
+  color: #9ca3af;
+}
+
+.pdfMerge-alert {
+  margin: 0.4rem 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  background: rgba(239, 68, 68, 0.08);
+  color: #fecaca;
+  font-size: 0.92rem;
+}
+
+.pdfMerge-sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.pdfMerge-sectionTitle {
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.pdfMerge-sectionNote {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.pdfMerge-empty {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #9ca3af;
+  background: rgba(2, 6, 23, 0.25);
+}
+
+/* Grid */
+.pdfMerge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Single file should not stretch too wide */
+.pdfMerge-gridSingle {
+  grid-template-columns: minmax(260px, 520px);
+  justify-content: center;
+}
+
+.pdfMerge-item {
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(2, 6, 23, 0.25);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.55);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  cursor: grab;
+  padding: 0.95rem 0.95rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pdfMerge-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+.pdfMerge-item:active {
+  cursor: grabbing;
+}
+
+.pdfMerge-fileRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.pdfMerge-indexPill {
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(2, 6, 23, 0.8);
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.pdfMerge-fileInfo {
+  min-width: 0;
+  flex: 1;
+}
+
+.pdfMerge-fileName {
+  font-size: 0.92rem;
+  color: #cbd5f5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pdfMerge-fileSize {
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+.pdfMerge-itemFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.9rem;
+}
+
+.pdfMerge-removeBtn {
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: transparent;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.pdfMerge-removeBtn:hover:enabled {
+  transform: translateY(-1px);
+  border-color: rgba(239, 68, 68, 0.8);
+  color: #fecaca;
+}
+
+.pdfMerge-removeBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Progress */
+.pdfMerge-progress {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(2, 6, 23, 0.25);
+}
+
+.pdfMerge-progressTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.pdfMerge-progressLabel {
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  font-weight: 600;
+}
+
+.pdfMerge-progressPercent {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 700;
+}
+
+.pdfMerge-progressBar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.pdfMerge-progressFill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  transition: width 0.15s ease;
+}
+
+/* Actions */
+.pdfMerge-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.pdfMerge-primaryBtn {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.pdfMerge-primaryBtn:hover:enabled {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 12px 30px rgba(8, 47, 73, 0.7);
+}
+
+.pdfMerge-primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pdfMerge-downloadBtn {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #020617;
+  color: #e5e7eb;
+  transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdfMerge-downloadBtn:hover {
+  transform: translateY(-1px);
+  border-color: #38bdf8;
+  color: #f9fafb;
+}
+
+.pdfMerge-downloadDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* How it works */
+.pdfMerge-howItWorks {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.pdfMerge-howItWorksTitle {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f9fafb;
+  letter-spacing: 0.02em;
+}
+
+.pdfMerge-howItWorksBody {
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(2, 6, 23, 0.25);
+  padding: 0.95rem 1rem;
+}
+
+.pdfMerge-howItWorksText {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #9ca3af;
+}
+
+.pdfMerge-howItWorksText + .pdfMerge-howItWorksText {
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 768px) {
+  .pdfMerge-page {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .pdfMerge-title {
+    font-size: 1.6rem;
+  }
+
+  .pdfMerge-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .pdfMerge-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .pdfMerge-uploadRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pdfMerge-uploadBtn,
+  .pdfMerge-secondaryBtn,
+  .pdfMerge-primaryBtn,
+  .pdfMerge-downloadBtn {
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .pdfMerge-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pdfMerge-grid {
+    grid-template-columns: 1fr;
+  }
+}

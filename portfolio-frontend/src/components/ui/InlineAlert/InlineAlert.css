@@ -1,0 +1,29 @@
+.inline-alert {
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--ui-radius);
+  border: 1px solid var(--ui-border);
+  background: rgba(15, 23, 42, 0.75);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.inline-alert-info {
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #bae6fd;
+}
+
+.inline-alert-error {
+  border-color: rgba(248, 113, 113, 0.5);
+  color: #fecaca;
+}
+
+.inline-alert-success {
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #bbf7d0;
+}
+
+.inline-alert-warning {
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fde68a;
+}
