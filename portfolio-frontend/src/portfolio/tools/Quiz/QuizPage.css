@@ -457,10 +457,13 @@
 
 .quiz-admin-table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .quiz-admin-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   font-size: 0.85rem;
 }
@@ -470,19 +473,33 @@
   padding: 0.65rem 0.5rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);
   text-align: start;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .quiz-admin-table th {
   color: #9ca3af;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .quiz-admin-id {
   font-family: monospace;
   font-size: 0.75rem;
   max-width: 160px;
-  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quiz-admin-meta {
+  white-space: nowrap;
+}
+
+.quiz-admin-question {
+  max-width: 420px;
+  line-height: 1.45;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .quiz-admin-actions {
@@ -648,6 +665,62 @@
   .quiz-admin-search {
     min-width: 0;
     width: 100%;
+  }
+
+  .quiz-admin-page .quiz-admin-header-actions {
+    width: 100%;
+  }
+
+  .quiz-admin-page .quiz-admin-header-actions .quiz-admin-link,
+  .quiz-admin-page .quiz-admin-header-actions .quiz-next-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quiz-admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .quiz-admin-toolbar .quiz-select,
+  .quiz-admin-toolbar .quiz-start-btn {
+    width: 100%;
+  }
+
+  .quiz-admin-table-wrap {
+    margin-inline: -0.15rem;
+    padding-bottom: 0.35rem;
+    border-radius: 10px;
+    box-shadow: inset -12px 0 12px -12px rgba(2, 6, 23, 0.85);
+  }
+
+  .quiz-admin-table {
+    min-width: 680px;
+  }
+
+  .quiz-admin-id {
+    max-width: 120px;
+  }
+
+  .quiz-admin-question {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .quiz-admin-actions {
+    min-width: 210px;
+  }
+
+  .quiz-admin-actions .quiz-next-btn {
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
   }
 
   .quiz-admin-form-panel {

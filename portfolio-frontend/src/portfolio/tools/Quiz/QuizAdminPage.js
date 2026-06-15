@@ -358,10 +358,17 @@ const QuizAdminPage = () => {
                 <tbody>
                   {questions.map((q) => (
                     <tr key={q.questionId}>
-                      <td className="quiz-admin-id">{q.questionId}</td>
-                      <td>{t(`Quiz.category${q.category === "oop" ? "OOP" : q.category === "data_structures" ? "DataStructures" : "Algorithms"}`)}</td>
-                      <td>{t(`Quiz.${q.difficulty}`)}</td>
-                      <td>{q.questionText?.[lang] || q.questionText?.en}</td>
+                      <td className="quiz-admin-id" title={q.questionId}>
+                        {q.questionId}
+                      </td>
+                      <td className="quiz-admin-meta">{t(`Quiz.category${q.category === "oop" ? "OOP" : q.category === "data_structures" ? "DataStructures" : "Algorithms"}`)}</td>
+                      <td className="quiz-admin-meta">{t(`Quiz.${q.difficulty}`)}</td>
+                      <td
+                        className="quiz-admin-question"
+                        title={q.questionText?.[lang] || q.questionText?.en || ""}
+                      >
+                        {q.questionText?.[lang] || q.questionText?.en}
+                      </td>
                       <td>
                         <span className={q.isActive ? "quiz-admin-badge-active" : "quiz-admin-badge-inactive"}>
                           {q.isActive ? t("Quiz.admin.active") : t("Quiz.admin.inactive")}
