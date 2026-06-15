@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./portfolio-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./portfolio-backend/.env
+    environment:
+      PORT: "5000"
+      ALLOWED_ORIGINS: "http://localhost:3000"
+      AWS_REGION_DB: "${AWS_REGION_DB:-eu-north-1}"
+      SNAKE_BEST_SCORE_TABLE: "${SNAKE_BEST_SCORE_TABLE:-snake_bestScore}"
+      QUIZ_USER_STATS_TABLE: "${QUIZ_USER_STATS_TABLE:-quizUserStats}"
+      QUIZ_QUESTIONS_TABLE: "${QUIZ_QUESTIONS_TABLE:-quizQuestions}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID:-}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY:-}"
+      AWS_SESSION_TOKEN: "${AWS_SESSION_TOKEN:-}"
+    volumes:
+      - ${USERPROFILE}/.aws:/root/.aws:ro
+
+  frontend:
+    build:
+      context: ./portfolio-frontend
+      args:
+        REACT_APP_API_BASE_URL: "http://localhost:5000"
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
