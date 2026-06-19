@@ -12,10 +12,9 @@ import {
   YAxis,
 } from "recharts";
 import { adminFetchAwsCosts } from "../../api/quizApi";
+import AdminShell from "./AdminShell";
 import InlineAlert from "../../components/ui/InlineAlert/InlineAlert";
 import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
-import AdminShell from "./AdminShell";
-import "./AdminPage.css";
 
 const COST_ERROR_KEYS = {
   cost_explorer_access_denied: "Admin.costs.errors.accessDenied",
@@ -100,7 +99,10 @@ const AdminAwsCostsPage = () => {
   }, [loadCosts]);
 
   const currency = costs?.currency || "USD";
-  const services = costs?.costsByService || [];
+  const services = useMemo(
+    () => costs?.costsByService ?? [],
+    [costs?.costsByService]
+  );
   const dailyCosts = costs?.dailyCosts || [];
   const monthToDateTotal = costs?.monthToDateTotal ?? 0;
   const isLowCost = monthToDateTotal < 0.01;

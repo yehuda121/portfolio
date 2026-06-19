@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { adminCharacterChat } from "../../api/quizApi";
+import AdminShell from "./AdminShell";
 import InlineAlert from "../../components/ui/InlineAlert/InlineAlert";
 import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
-import AdminShell from "./AdminShell";
-import "./AdminPage.css";
 
 const EMPTY_CHARACTER = {
   name: "",
