@@ -5,7 +5,13 @@ const logger = require("./utils/logger");
 const app = express();
 
 app.use(createCorsMiddleware());
-app.use(express.json({ limit: "16kb" }));
+app.use((req, res, next) => {
+  const isCharacterChat =
+    req.method === "POST" &&
+    (req.path === "/api/quiz/admin/character-chat" ||
+      req.originalUrl?.includes("/api/quiz/admin/character-chat"));
+  express.json({ limit: isCharacterChat ? "5mb" : "16kb" })(req, res, next);
+});
 
 app.use((req, res, next) => {
   const start = Date.now();

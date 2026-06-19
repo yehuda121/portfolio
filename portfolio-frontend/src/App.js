@@ -17,6 +17,10 @@ const JpgToPdf = lazy(() => import('./portfolio/tools/jpg-to-pdf/JpgToPdf'));
 const PdfMerge = lazy(() => import('./portfolio/tools/pdf-merge/PdfMerge'));
 const QuizPage = lazy(() => import('./portfolio/tools/Quiz/QuizPage'));
 const QuizAdminPage = lazy(() => import('./portfolio/tools/Quiz/QuizAdminPage'));
+const AdminDashboardPage = lazy(() => import('./portfolio/admin/AdminDashboardPage'));
+const AdminQuestionsPage = lazy(() => import('./portfolio/admin/AdminQuestionsPage'));
+const AdminCharacterChatPage = lazy(() => import('./portfolio/admin/AdminCharacterChatPage'));
+const AdminAwsCostsPage = lazy(() => import('./portfolio/admin/AdminAwsCostsPage'));
 
 function AppRoutes() {
   const { t } = useTranslation();
@@ -40,6 +44,10 @@ function AppRoutes() {
           <Route path="/PdfMerge" element={<PdfMerge />} />
           <Route path="/Quiz" element={<QuizPage />} />
           <Route path="/Quiz/Admin" element={<QuizAdminPage />} />
+          <Route path="/Admin" element={<AdminDashboardPage />} />
+          <Route path="/Admin/questions" element={<AdminQuestionsPage />} />
+          <Route path="/Admin/chat" element={<AdminCharacterChatPage />} />
+          <Route path="/Admin/costs" element={<AdminAwsCostsPage />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>

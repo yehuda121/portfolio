@@ -110,3 +110,17 @@ export async function adminToggleQuestionActive(questionId) {
     headers: quizAdminHeaders(),
   });
 }
+
+export async function adminFetchAwsCosts() {
+  return apiFetch("/api/quiz/admin/costs", {
+    headers: quizAdminHeaders(),
+  });
+}
+
+export async function adminCharacterChat(body) {
+  return apiFetch("/api/quiz/admin/character-chat", {
+    method: "POST",
+    headers: quizAdminHeaders(),
+    body: JSON.stringify(body),
+  });
+}

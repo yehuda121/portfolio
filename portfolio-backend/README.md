@@ -14,7 +14,41 @@ The Developer Quiz stores all question content in DynamoDB (bilingual EN/HE). UI
 - **Practice** — no timer; wrong answers are re-queued; explanations on demand after correct answers
 - **Interview** — 10 timed questions (30/60/90/120s each); explanations only in the final summary
 
-**Admin panel:** password-protected CRUD for questions via `/api/quiz/admin/*`
+**Admin panel:** password-protected dashboard at `/Admin` with Manage Questions, Model Chat, and AWS Costs (`/api/quiz/admin/*`)
+
+## Admin Dashboard
+
+The admin area is a dashboard with three sections:
+
+| Section | Route | Description |
+|---------|-------|-------------|
+| **Manage Questions** | `/Admin/questions` | Existing quiz question CRUD (bilingual DynamoDB content) |
+| **Model Chat** | `/Admin/chat` | Admin-only sample chat for testing AI interaction |
+| **AWS Costs** | `/Admin/costs` | Read-only month-to-date AWS usage dashboard |
+
+### Manage Questions
+
+Unchanged question management: list, filter, create, edit, delete, and toggle active status. Accessible from the dashboard; same API as before.
+
+### Model Chat
+
+A sample admin-only model chat for testing AI interaction inside the admin area. For admin testing and demo purposes only — not a production assistant.
+
+- Uses the OpenAI API (`OPENAI_API_KEY`, optional `OPENAI_MODEL`)
+- Short contextual conversation (last 10 messages sent as context)
+- Optional image input (jpg, jpeg, png, webp)
+- Chat history is not persisted; refresh clears the conversation
+
+### AWS Costs
+
+Read-only AWS Costs dashboard via Cost Explorer (`GET /api/quiz/admin/costs`):
+
+- Month-to-date total cost
+- Cost by AWS service (table and bar chart)
+- Daily cost trend chart
+- No billing write actions
+
+Requires `ce:GetCostAndUsage` on the backend IAM role and Cost Explorer enabled in the account. Use `AWS_REGION_CE` (default `us-east-1`) for the Cost Explorer API region.
 
 ## API Endpoints
 
@@ -46,6 +80,8 @@ The Developer Quiz stores all question content in DynamoDB (bilingual EN/HE). UI
 - `PUT /api/quiz/admin/questions/:questionId`
 - `DELETE /api/quiz/admin/questions/:questionId`
 - `PATCH /api/quiz/admin/questions/:questionId/toggle-active`
+- `GET /api/quiz/admin/costs` — current-month AWS costs (read-only; requires `ce:GetCostAndUsage`). Returns `monthToDateTotal`, `dailyCosts`, `costsByService`, `currency`, `lastUpdated`.
+- `POST /api/quiz/admin/character-chat` — Model Chat; body: `{ character, messages, userMessage, image? }`. Returns `{ reply }`. Requires `OPENAI_API_KEY`.
 
 **Stats** (legacy)
 - `POST /api/quiz/stats/upsert`
@@ -76,10 +112,13 @@ Ensure `portfolio-backend/.env` includes AWS credentials and `QUIZ_ADMIN_PASSWOR
 PORT=5000
 ALLOWED_ORIGINS=http://localhost:3000
 AWS_REGION_DB=eu-north-1
+AWS_REGION_CE=us-east-1
 SNAKE_BEST_SCORE_TABLE=snake_bestScore
 QUIZ_USER_STATS_TABLE=quizUserStats
 QUIZ_QUESTIONS_TABLE=quizQuestions
 QUIZ_ADMIN_PASSWORD=change-me
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4.1-mini
 ```
 
 AWS credentials must be available via your local AWS profile or environment (for DynamoDB access).
@@ -151,7 +190,8 @@ src/
 ├── routes/quiz/
 │   ├── session.js      # Session lifecycle
 │   ├── questions.js    # Next question (no correctIndex leak)
-│   ├── admin.js        # Admin CRUD + auth
+│   ├── admin.js        # Admin CRUD, costs, model chat
+│   ├── characterChat.js
 │   └── stats.js
 ├── utils/
 │   ├── quizConstants.js
@@ -169,6 +209,8 @@ src/
 - Quiz answers validated server-side; `correctIndex` never sent before submission
 - Admin password stored in `QUIZ_ADMIN_PASSWORD` (backend only)
 - Stateless admin token via HMAC (suitable for local/demo)
+- AWS Costs endpoint is read-only; Lambda role needs `ce:GetCostAndUsage` and Cost Explorer enabled in the account
+- Model Chat uses the OpenAI API (`OPENAI_API_KEY`, optional `OPENAI_MODEL`); not persisted server-side
 - No secrets in source code — use environment variables only
 
 ## Scripts

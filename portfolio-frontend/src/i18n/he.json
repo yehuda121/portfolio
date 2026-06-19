@@ -149,6 +149,84 @@
     "quizTitle": "מערכת שאלות למתכנת",
     "quizDesc": "תרגול וראיון סימולציה עם מעקב התקדמות לפי סשנים."
   },
+  "Admin": {
+    "backToDashboard": "חזרה ללוח הבקרה",
+    "dashboard": {
+      "title": "לוח בקרה למנהל",
+      "subtitle": "בחר פעולת ניהול מהאפשרויות למטה.",
+      "open": "פתיחה",
+      "manageQuestionsTitle": "ניהול שאלות",
+      "manageQuestionsDesc": "עריכה וסנכרון שאלות בסיס הידע",
+      "characterChatTitle": "צ'אט דמויות",
+      "characterChatDesc": "צ'אט ניהולי זמני בסגנון roleplay",
+      "awsCostsTitle": "עלויות AWS",
+      "awsCostsDesc": "צפייה בקריאה בלבד בעלויות שימוש בחשבון AWS"
+    },
+    "chat": {
+      "title": "צ'אט דמויות",
+      "subtitle": "צ'אט roleplay עם דמות AI מותאמת. שום דבר לא נשמר — רענון מנקה הכל.",
+      "profileTitle": "פרופיל דמות",
+      "empty": "שלח הודעה כדי להתחיל שיחה.",
+      "inputPlaceholder": "הקלד הודעה…",
+      "send": "שליחה",
+      "sending": "שולח…",
+      "thinking": "חושב…",
+      "resetChat": "איפוס שיחה",
+      "resetCharacter": "איפוס דמות",
+      "attachImage": "צירוף תמונה",
+      "removeImage": "הסרה",
+      "previewAlt": "תצוגה מקדימה של תמונה",
+      "uploadedImageAlt": "תמונה שהועלתה",
+      "imageOnlyMessage": "[תמונה]",
+      "fields": {
+        "name": "שם",
+        "age": "גיל",
+        "location": "מיקום",
+        "religion": "דת / רקע",
+        "world": "עולם / סביבה",
+        "personality": "אישיות",
+        "speakingStyle": "סגנון דיבור",
+        "extraNotes": "הערות נוספות"
+      },
+      "errors": {
+        "messageRequired": "הקלד הודעה או צרף תמונה.",
+        "invalidImage": "לא ניתן להשתמש בתמונה הזו. נסה קובץ אחר.",
+        "invalidImageType": "נתמכים רק קבצי JPG, PNG ו-WEBP.",
+        "imageTooLarge": "גודל התמונה חייב להיות עד 3 MB.",
+        "emptyReply": "המודל החזיר תשובה ריקה. נסה שוב.",
+        "accessDenied": "אין הרשאת Bedrock לתפקיד AWS זה.",
+        "awsNotConfigured": "הרשאות AWS לא הוגדרו בשרת.",
+        "invalidRequest": "בקשת הצ'אט נדחתה. בדוק את שדות הדמות ונסה שוב.",
+        "quotaExceeded": "מכסת Bedrock היומית מוצתה. נסה שוב מאוחר יותר או הגדל את המכסה ב-AWS.",
+        "unavailable": "צ'אט הדמויות לא זמין כרגע. נסה שוב מאוחר יותר."
+      }
+    },
+    "costs": {
+      "title": "עלויות AWS",
+      "subtitle": "תצוגת קריאה בלבד של עלויות AWS לחודש הנוכחי לפי שירות.",
+      "period": "{{start}} – {{end}} (מתחילת החודש)",
+      "summaryMtd": "סה״כ מתחילת החודש",
+      "summaryServices": "שירותים פעילים",
+      "summaryTopService": "שירות בעלות הגבוהה ביותר",
+      "summaryUpdated": "עודכן לאחרונה",
+      "noTopService": "אין",
+      "chartByService": "עלות לפי שירות",
+      "chartDailyTrend": "מגמת עלות יומית",
+      "tableTitle": "פירוט לפי שירות",
+      "chartNoData": "לא נרשם שימוש בתקופה זו.",
+      "serviceColumn": "שירות",
+      "amountColumn": "עלות",
+      "percentColumn": "% מהסה״כ",
+      "empty": "אין נתוני עלות לתקופה הנוכחית.",
+      "lowCostHint": "השימוש החודש מינימלי. הגרפים משקפים הוצאה קרובה לאפס.",
+      "errors": {
+        "accessDenied": "אין הרשאה לגשת ל-Cost Explorer בחשבון או בתפקיד AWS זה.",
+        "disabled": "AWS Cost Explorer לא מופעל בחשבון זה.",
+        "awsNotConfigured": "הרשאות AWS לא הוגדרו בשרת.",
+        "unavailable": "לא ניתן לטעון נתוני עלות מ-AWS. נסה שוב מאוחר יותר."
+      }
+    }
+  },
   "JpgToPdf": {
     "title": "המרת JPG ל-PDF",
     "subtitle": "העלה תמונות, סובב או סדר מחדש, לחץ על המרה ואז הורד את ה־PDF.",

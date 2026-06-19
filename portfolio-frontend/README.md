@@ -6,6 +6,7 @@ React single-page application for Yehuda Shmulevitz's professional portfolio, to
 
 - Bilingual portfolio (English/Hebrew, RTL/LTR)
 - Tools: JPG→PDF, PDF Merge, Developer Quiz
+- Admin dashboard: Manage Questions, Model Chat, AWS Costs (`/Admin`)
 - Games: Snake, Minesweeper, Wizard Arena 3D
 - Custom UI system: toasts, inline alerts, modals, error boundaries
 - Lazy-loaded routes for smaller initial bundle
@@ -50,6 +51,7 @@ src/
 ├── portfolio/
 │   ├── components/Navbar/
 │   ├── pages/HomePage/
+│   ├── admin/              # Admin dashboard, model chat, AWS costs
 │   ├── tools/              # Quiz, JpgToPdf, PdfMerge, ToolsHome
 │   └── games/              # Snake, Minesweeper, WizardArena, GamesHome
 ├── App.js                  # Routes + providers

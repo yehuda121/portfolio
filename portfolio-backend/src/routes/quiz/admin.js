@@ -6,12 +6,16 @@ const {
   UpdateCommand,
   DeleteCommand,
 } = require("@aws-sdk/lib-dynamodb");
+const { GetCostAndUsageCommand } = require("@aws-sdk/client-cost-explorer");
 const { ddb } = require("../../config/dynamo");
+const { ce } = require("../../config/costExplorer");
 const { createAdminToken, verifyAdminToken, requireAdmin, getAdminPassword } = require("../../utils/adminAuth");
 const { validateQuestion } = require("../../utils/validateQuestion");
 const { VALID_CATEGORIES, VALID_DIFFICULTIES } = require("../../utils/quizConstants");
 const logger = require("../../utils/logger");
 const { mapDynamoError } = require("../../utils/mapDynamoError");
+const { mapCostExplorerError } = require("../../utils/mapCostExplorerError");
+const characterChatHandler = require("./characterChat");
 
 const router = express.Router();
 const QUESTIONS_TABLE = process.env.QUIZ_QUESTIONS_TABLE;
@@ -233,5 +237,101 @@ router.patch("/questions/:questionId/toggle-active", requireAdmin, async (req, r
     return res.status(status).json({ ok: false, error });
   }
 });
+
+function getMonthToDatePeriod() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), 1);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const endExclusive = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  return {
+    start: start.toISOString().slice(0, 10),
+    end: today.toISOString().slice(0, 10),
+    endExclusive: endExclusive.toISOString().slice(0, 10),
+  };
+}
+
+function roundAmount(value) {
+  return Math.round(Number(value || 0) * 100) / 100;
+}
+
+function parseCostsByService(resultsByTime) {
+  const groups = resultsByTime?.[0]?.Groups || [];
+  return groups
+    .map((group) => ({
+      service: group.Keys?.[0] || "Unknown",
+      amount: roundAmount(group.Metrics?.UnblendedCost?.Amount),
+    }))
+    .filter((row) => row.amount > 0)
+    .sort((a, b) => b.amount - a.amount);
+}
+
+function parseDailyCosts(resultsByTime) {
+  return (resultsByTime || []).map((bucket) => ({
+    date: bucket.TimePeriod?.Start || "",
+    amount: roundAmount(bucket.Total?.UnblendedCost?.Amount),
+  }));
+}
+
+function withPercentages(rows, total) {
+  return rows.map((row) => ({
+    service: row.service,
+    amount: row.amount,
+    percentage: total > 0 ? roundAmount((row.amount / total) * 100) : 0,
+  }));
+}
+
+router.get("/costs", requireAdmin, async (req, res) => {
+  try {
+    const period = getMonthToDatePeriod();
+    const timePeriod = { Start: period.start, End: period.endExclusive };
+
+    const [byService, byDay] = await Promise.all([
+      ce.send(
+        new GetCostAndUsageCommand({
+          TimePeriod: timePeriod,
+          Granularity: "MONTHLY",
+          Metrics: ["UnblendedCost"],
+          GroupBy: [{ Type: "DIMENSION", Key: "SERVICE" }],
+        })
+      ),
+      ce.send(
+        new GetCostAndUsageCommand({
+          TimePeriod: timePeriod,
+          Granularity: "DAILY",
+          Metrics: ["UnblendedCost"],
+        })
+      ),
+    ]);
+
+    const serviceRows = parseCostsByService(byService.ResultsByTime);
+    const monthToDateTotal = roundAmount(serviceRows.reduce((sum, row) => sum + row.amount, 0));
+    const currency =
+      byService.ResultsByTime?.[0]?.Groups?.[0]?.Metrics?.UnblendedCost?.Unit ||
+      byDay.ResultsByTime?.[0]?.Total?.UnblendedCost?.Unit ||
+      "USD";
+
+    return res.json({
+      ok: true,
+      period: { start: period.start, end: period.end },
+      monthToDateTotal,
+      currency,
+      lastUpdated: new Date().toISOString(),
+      costsByService: withPercentages(serviceRows, monthToDateTotal),
+      dailyCosts: parseDailyCosts(byDay.ResultsByTime),
+    });
+  } catch (err) {
+    const error = mapCostExplorerError(err);
+    logger.error("admin_costs_failed", { message: err.message, error });
+    const status =
+      error === "aws_not_configured" ||
+      error === "cost_explorer_access_denied" ||
+      error === "cost_explorer_disabled"
+        ? 503
+        : 500;
+    return res.status(status).json({ ok: false, error });
+  }
+});
+
+router.post("/character-chat", requireAdmin, characterChatHandler);
 
 module.exports = router;

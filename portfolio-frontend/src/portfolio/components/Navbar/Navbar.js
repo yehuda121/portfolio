@@ -96,7 +96,7 @@ function Navbar() {
             </button>
 
             <Link
-              to="/Quiz/Admin"
+              to="/Admin"
               className="navbar-link navbar-link-admin"
               onClick={closeMenu}
             >
