@@ -9,7 +9,6 @@
     "check": "node --check src/server.js && node --check src/app.js && node --check src/lambda.js"
   },
   "dependencies": {
-    "@aws-sdk/client-cost-explorer": "^3.1072.0",
     "@aws-sdk/client-dynamodb": "^3.980.0",
     "@aws-sdk/lib-dynamodb": "^3.980.0",
     "cors": "^2.8.5",

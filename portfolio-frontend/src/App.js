@@ -20,7 +20,6 @@ const QuizAdminPage = lazy(() => import('./portfolio/tools/Quiz/QuizAdminPage'))
 const AdminDashboardPage = lazy(() => import('./portfolio/admin/AdminDashboardPage'));
 const AdminQuestionsPage = lazy(() => import('./portfolio/admin/AdminQuestionsPage'));
 const AdminCharacterChatPage = lazy(() => import('./portfolio/admin/AdminCharacterChatPage'));
-const AdminAwsCostsPage = lazy(() => import('./portfolio/admin/AdminAwsCostsPage'));
 
 function AppRoutes() {
   const { t } = useTranslation();
@@ -47,7 +46,6 @@ function AppRoutes() {
           <Route path="/Admin" element={<AdminDashboardPage />} />
           <Route path="/Admin/questions" element={<AdminQuestionsPage />} />
           <Route path="/Admin/chat" element={<AdminCharacterChatPage />} />
-          <Route path="/Admin/costs" element={<AdminAwsCostsPage />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>

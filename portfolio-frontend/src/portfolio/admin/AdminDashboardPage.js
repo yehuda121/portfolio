@@ -20,12 +20,6 @@ const AdminDashboardPage = () => {
         descKey: "Admin.dashboard.characterChatDesc",
         route: "/Admin/chat",
       },
-      {
-        id: "costs",
-        titleKey: "Admin.dashboard.awsCostsTitle",
-        descKey: "Admin.dashboard.awsCostsDesc",
-        route: "/Admin/costs",
-      },
     ],
     []
   );

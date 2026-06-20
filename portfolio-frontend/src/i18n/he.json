@@ -158,9 +158,7 @@
       "manageQuestionsTitle": "ניהול שאלות",
       "manageQuestionsDesc": "עריכה וסנכרון שאלות בסיס הידע",
       "characterChatTitle": "צ'אט דמויות",
-      "characterChatDesc": "צ'אט ניהולי זמני בסגנון roleplay",
-      "awsCostsTitle": "עלויות AWS",
-      "awsCostsDesc": "צפייה בקריאה בלבד בעלויות שימוש בחשבון AWS"
+      "characterChatDesc": "צ'אט ניהולי זמני בסגנון roleplay"
     },
     "chat": {
       "title": "צ'אט דמויות",
@@ -199,31 +197,6 @@
         "invalidRequest": "בקשת הצ'אט נדחתה. בדוק את שדות הדמות ונסה שוב.",
         "quotaExceeded": "מכסת Bedrock היומית מוצתה. נסה שוב מאוחר יותר או הגדל את המכסה ב-AWS.",
         "unavailable": "צ'אט הדמויות לא זמין כרגע. נסה שוב מאוחר יותר."
-      }
-    },
-    "costs": {
-      "title": "עלויות AWS",
-      "subtitle": "תצוגת קריאה בלבד של עלויות AWS לחודש הנוכחי לפי שירות.",
-      "period": "{{start}} – {{end}} (מתחילת החודש)",
-      "summaryMtd": "סה״כ מתחילת החודש",
-      "summaryServices": "שירותים פעילים",
-      "summaryTopService": "שירות בעלות הגבוהה ביותר",
-      "summaryUpdated": "עודכן לאחרונה",
-      "noTopService": "אין",
-      "chartByService": "עלות לפי שירות",
-      "chartDailyTrend": "מגמת עלות יומית",
-      "tableTitle": "פירוט לפי שירות",
-      "chartNoData": "לא נרשם שימוש בתקופה זו.",
-      "serviceColumn": "שירות",
-      "amountColumn": "עלות",
-      "percentColumn": "% מהסה״כ",
-      "empty": "אין נתוני עלות לתקופה הנוכחית.",
-      "lowCostHint": "השימוש החודש מינימלי. הגרפים משקפים הוצאה קרובה לאפס.",
-      "errors": {
-        "accessDenied": "אין הרשאה לגשת ל-Cost Explorer בחשבון או בתפקיד AWS זה.",
-        "disabled": "AWS Cost Explorer לא מופעל בחשבון זה.",
-        "awsNotConfigured": "הרשאות AWS לא הוגדרו בשרת.",
-        "unavailable": "לא ניתן לטעון נתוני עלות מ-AWS. נסה שוב מאוחר יותר."
       }
     }
   },

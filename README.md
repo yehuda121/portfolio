@@ -25,11 +25,10 @@ portfolio/
 
 ### Admin Dashboard
 
-Password-protected area at `/Admin` (navbar link). Three sections:
+Password-protected area at `/Admin` (navbar link). Two sections:
 
 - **Manage Questions** — quiz question CRUD (same management as before, now under the dashboard)
 - **Model Chat** — sample admin-only chat for testing AI interaction (OpenAI API, optional images, no persisted history; refresh clears the conversation). For testing/demo only.
-- **AWS Costs** — read-only dashboard: month-to-date total, cost by service, daily trend chart (Cost Explorer; no billing write actions)
 
 ### Recent frontend improvements
 - **Mobile responsive UI/UX** — improved spacing, touch targets, navigation menu, and layouts on small screens across portfolio, tools, quiz, and games (desktop layout unchanged).
@@ -113,7 +112,6 @@ Frontend runs at `http://localhost:3000` and proxies API calls in development.
 | `QUIZ_ADMIN_PASSWORD` | Yes | Admin panel password (backend only) |
 | `OPENAI_API_KEY` | For Model Chat | OpenAI API key (backend only) |
 | `OPENAI_MODEL` | No | OpenAI model (default `gpt-4.1-mini`) |
-| `AWS_REGION_CE` | No | Cost Explorer API region (default `us-east-1`) |
 
 See `.env.example` files in each package for placeholders.
 
@@ -145,7 +143,7 @@ npm run import:quiz:reset   # delete questions only, import 60-question dataset
 
 **Modes:** Practice (unlimited, explanations on demand) · Interview (10 timed questions, summary at end)
 
-**Admin:** Open `/Admin` in the frontend; password from `QUIZ_ADMIN_PASSWORD`. AWS Costs requires Cost Explorer access (`ce:GetCostAndUsage`) on the backend role.
+**Admin:** Open `/Admin` in the frontend; password from `QUIZ_ADMIN_PASSWORD`.
 
 **Docker:** From repo root: `docker compose up --build` (mounts AWS creds + loads `portfolio-backend/.env`).
 

@@ -158,9 +158,7 @@
       "manageQuestionsTitle": "Manage Questions",
       "manageQuestionsDesc": "Edit and sync knowledge base questions",
       "characterChatTitle": "Character Chat",
-      "characterChatDesc": "Temporary roleplay-style admin chat",
-      "awsCostsTitle": "AWS Costs",
-      "awsCostsDesc": "View read-only AWS account usage costs"
+      "characterChatDesc": "Temporary roleplay-style admin chat"
     },
     "chat": {
       "title": "Character Chat",
@@ -199,31 +197,6 @@
         "invalidRequest": "The chat request was rejected. Check the character fields and try again.",
         "quotaExceeded": "Daily Bedrock quota was reached. Please try again later or increase the quota in AWS.",
         "unavailable": "Character chat is unavailable right now. Try again later."
-      }
-    },
-    "costs": {
-      "title": "AWS Costs",
-      "subtitle": "Read-only view of current-month AWS usage costs by service.",
-      "period": "{{start}} – {{end}} (month to date)",
-      "summaryMtd": "Month-to-date total",
-      "summaryServices": "Active services",
-      "summaryTopService": "Highest-cost service",
-      "summaryUpdated": "Last updated",
-      "noTopService": "None",
-      "chartByService": "Cost by service",
-      "chartDailyTrend": "Daily cost trend",
-      "tableTitle": "Service breakdown",
-      "chartNoData": "No usage recorded for this period.",
-      "serviceColumn": "Service",
-      "amountColumn": "Cost",
-      "percentColumn": "% of total",
-      "empty": "No cost data for the current period.",
-      "lowCostHint": "Usage is minimal this month. Charts reflect near-zero spend.",
-      "errors": {
-        "accessDenied": "Cost Explorer access is not permitted for this AWS account or role.",
-        "disabled": "AWS Cost Explorer is not enabled for this account.",
-        "awsNotConfigured": "AWS credentials are not configured on the server.",
-        "unavailable": "Could not load AWS cost data. Try again later."
       }
     }
   },
