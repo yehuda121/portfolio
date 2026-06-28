@@ -143,12 +143,15 @@ jobs:
           path: portfolio-frontend/build
 
       - name: Authenticate to Google Cloud
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
 
       - name: Deploy to Firebase Hosting
         working-directory: portfolio-frontend
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
         run: npx firebase-tools@13.35.1 deploy --only hosting --non-interactive --project "${{ vars.FIREBASE_PROJECT_ID }}"
 
   # ---------------------------------------------------------------------------
