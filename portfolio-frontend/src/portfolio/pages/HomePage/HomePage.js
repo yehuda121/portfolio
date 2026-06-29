@@ -38,6 +38,10 @@ function Homepage() {
               {t('homepage.cvButton')}
             </a>
 
+            <Link to="/degree" className="homepage-btn homepage-btn-secondary">
+              {t('homepage.degreeButton')}
+            </Link>
+
             <button
               type="button"
               onClick={() => {

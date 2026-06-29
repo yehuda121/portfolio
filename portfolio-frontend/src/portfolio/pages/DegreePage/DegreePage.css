@@ -1,0 +1,110 @@
+.degree-page {
+  min-height: calc(100vh - 72px);
+  padding: 4rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
+  color: #e5e7eb;
+}
+
+.degree-card {
+  width: 100%;
+  max-width: 900px;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%), #020617;
+  border-radius: 16px;
+  padding: 2rem 2rem 2.25rem;
+  border: 1px solid rgba(30, 64, 175, 0.55);
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.degree-header {
+  margin-bottom: 1.75rem;
+}
+
+.degree-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 0.5rem;
+}
+
+.degree-institution {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.degree-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.degree-image {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.degree-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.degree-open-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0b1220;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+  transition: background-color 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.degree-open-btn:hover {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.6);
+}
+
+@media (max-width: 768px) {
+  .degree-page {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .degree-card {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .degree-title {
+    font-size: 1.45rem;
+  }
+
+  .degree-institution {
+    font-size: 0.95rem;
+  }
+
+  .degree-open-btn {
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+  }
+}

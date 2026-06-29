@@ -16,6 +16,7 @@ portfolio/
 ### Portfolio
 - Hero section, featured projects, contact details
 - English/Hebrew with RTL/LTR support
+- B.Sc. degree page at `/degree` (language-specific diploma image)
 - Featured project: **Smart Employee Assistant** (Bedrock RAG IT support)
 
 ### Tools (client-side + API)

@@ -8,6 +8,7 @@ import LoadingSpinner from './components/ui/LoadingSpinner/LoadingSpinner';
 import './components/ui/ui-tokens.css';
 
 const HomePage = lazy(() => import('./portfolio/pages/HomePage/HomePage'));
+const DegreePage = lazy(() => import('./portfolio/pages/DegreePage/DegreePage'));
 const GamesHome = lazy(() => import('./portfolio/games/GamesHomePage/GamesHome'));
 const Minesweeper = lazy(() => import('./portfolio/games/Minesweeper/Minesweeper'));
 const Snake = lazy(() => import('./portfolio/games/Snake/Snake'));
@@ -33,6 +34,7 @@ function AppRoutes() {
       <Suspense fallback={<LoadingSpinner label={t('Quiz.loading')} />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/degree" element={<DegreePage />} />
           <Route path="/GamesHome" element={<GamesHome />} />
           <Route path="/Minesweeper" element={<Minesweeper />} />
           <Route path="/Snake" element={<Snake />} />

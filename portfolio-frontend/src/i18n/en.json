@@ -8,8 +8,9 @@
     "tag": "Official Portfolio",
     "name": "Yehuda Shmulevitz",
     "role": "Software Engineer · AI Specialist · Full-Stack Developer",
-    "summary": "B.Sc. in Software Engineering with hands-on experience in full-stack development, cloud architectures, and AI-based features. I have built production-grade systems on AWS, real-time web platforms, and complex side projects in Unity, ML, C++, Python, and Linux. I am looking for my next opportunity in Software Development.",
+    "summary": "Software Engineer specializing in AI-powered applications, RAG systems, AI agents, backend development, and AWS cloud solutions. Experienced with Amazon Bedrock, LLM integrations, and end-to-end AI application development.",
     "cvButton": "View CV (PDF)",
+    "degreeButton": "View Degree",
     "contactButton": "Contact",
     "linkedinButton": "LinkedIn Profile",
     "viewOnGithub": "View on GitHub",
@@ -137,6 +138,12 @@
     "subtitle": "A 3D action prototype built in Unity. The WebGL version is part of a learning project.",
     "instructions": "How to play: Control the game with the arrow keys (left, right, forward), use the down arrow for aiming mode, press Space to cast a spell, and press S to activate a defensive shield.",
     "keyboardWarning": "This game requires a physical keyboard (touch-only devices like phones or tablets are not supported)."
+  },
+  "Degree": {
+    "title": "B.Sc. in Software Engineering",
+    "institution": "Azrieli College of Engineering Jerusalem",
+    "openFullResolution": "Open Full Resolution",
+    "diplomaAlt": "B.Sc. in Software Engineering diploma"
   },
   "ToolsHome": {
     "pageTitle": "Tools",

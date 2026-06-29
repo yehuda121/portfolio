@@ -5,6 +5,7 @@ React single-page application for Yehuda Shmulevitz's professional portfolio, to
 ## Features
 
 - Bilingual portfolio (English/Hebrew, RTL/LTR)
+- B.Sc. degree page at `/degree` (diploma image switches by language)
 - Tools: JPG→PDF, PDF Merge, Developer Quiz
 - Admin dashboard: Manage Questions, Model Chat (`/Admin`)
 - Games: Snake, Minesweeper, Wizard Arena 3D
@@ -51,6 +52,7 @@ src/
 ├── portfolio/
 │   ├── components/Navbar/
 │   ├── pages/HomePage/
+│   ├── pages/DegreePage/
 │   ├── admin/              # Admin dashboard, model chat
 │   ├── tools/              # Quiz, JpgToPdf, PdfMerge, ToolsHome
 │   └── games/              # Snake, Minesweeper, WizardArena, GamesHome

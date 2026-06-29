@@ -11,7 +11,6 @@ function WizardArenaGame() {
         <h1 className="wizardarena-title">{t("wizardArena.title")}</h1>
         <p className="wizardarena-subtitle">{t("wizardArena.subtitle")}</p>
         <p className="wizardarena-instructions">{t("wizardArena.instructions")}</p>
-        <p className="wizardarena-keyboard-warning">{t("wizardArena.keyboardWarning")}</p>
       </div>
 
       <div className="wizardarena-frame-wrapper">
