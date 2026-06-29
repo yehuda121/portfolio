@@ -143,28 +143,13 @@ jobs:
           path: portfolio-frontend/build
 
       - name: Deploy to Firebase Hosting
-        working-directory: portfolio-frontend
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "ERROR: FIREBASE_SERVICE_ACCOUNT_JSON secret is empty or missing"
-            exit 1
-          fi
-
-          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-service-account.json"
-
-          if ! jq empty "$RUNNER_TEMP/firebase-service-account.json"; then
-            echo "ERROR: Firebase service account secret is not valid JSON"
-            exit 1
-          fi
-
-          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-service-account.json"
-
-          npx firebase-tools@13.35.1 deploy \
-            --only hosting \
-            --non-interactive \
-            --project "${{ vars.FIREBASE_PROJECT_ID }}"
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: live
+          entryPoint: ./portfolio-frontend
 
   # ---------------------------------------------------------------------------
   # Email notification (success or failure)
