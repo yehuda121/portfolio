@@ -20,7 +20,6 @@ serviceAccountKey.json
 *firebase-adminsdk*.json
 *adminsdk*
 serviceAccount*
-**/click_game-backend/
 
 # --- Frontend build & test output (Create React App) ---
 portfolio-frontend/build/
@@ -74,7 +73,3 @@ Desktop.ini
 
 # --- Cursor ---
 .cursor/
-
-# --- Nested git metadata (legacy separate repos; remove these dirs before monorepo init) ---
-portfolio-frontend/.git/
-portfolio-backend/.git/

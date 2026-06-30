@@ -25,6 +25,3 @@ yarn-debug.log*
 yarn-error.log*
 # Docker
 docker-compose.override.yml
-
-click_game-backend/gamehub-4753a-firebase-adminsdk-sy656-122747f1b2.json
-backend/serviceAccountKey.json

@@ -2,7 +2,7 @@ node_modules
 serviceAccountKey.json
 .env
 .env.*
+!*.env.example
 *adminsdk*
 serviceAccount*
-click_game-backend
 lambda.zip
